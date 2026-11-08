@@ -1,0 +1,114 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "migemo-search",
+  "title": "Migemo Search",
+  "description": "ローマ字でmigemo検索し、選択した項目を任意の実行ファイルに渡します",
+  "icon": "extension-icon.png",
+  "author": "your-raycast-username",
+  "license": "MIT",
+  "platforms": ["macOS", "Windows"],
+  "categories": ["Productivity"],
+  "commands": [
+    {
+      "name": "migemo-search",
+      "title": "Migemo Search",
+      "description": "検索対象ファイルをmigemo検索し、選択項目を実行ファイルに渡す",
+      "mode": "view",
+      "preferences": [
+        {
+          "name": "itemsFile",
+          "type": "file",
+          "required": true,
+          "title": "検索対象ファイル",
+          "description": "JSON (.json) または 1行1項目のテキスト",
+          "placeholder": "items.json"
+        },
+        {
+          "name": "executable",
+          "type": "file",
+          "required": true,
+          "title": "実行ファイル",
+          "description": "選択項目を渡して実行するスクリプト/コマンド(macOS: 実行権限と shebang が必要 / Windows: .exe .ps1 .bat .cmd)",
+          "placeholder": "handler.sh"
+        },
+        {
+          "name": "dictFile",
+          "type": "file",
+          "required": true,
+          "title": "migemo辞書ファイル",
+          "description": "jsmigemo の migemo-compact-dict",
+          "placeholder": "migemo-compact-dict"
+        },
+        {
+          "name": "passMode",
+          "type": "dropdown",
+          "required": false,
+          "title": "値の渡し方",
+          "description": "選択した項目の value を実行ファイルにどう渡すか",
+          "default": "arg",
+          "data": [
+            { "title": "第1引数", "value": "arg" },
+            { "title": "標準入力", "value": "stdin" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "migemo-search-address",
+      "title": "Migemo Search address",
+      "description": "検索対象ファイルをmigemo検索し、選択項目を実行ファイルに渡す",
+      "mode": "view",
+      "preferences": [
+        {
+          "name": "itemsFile",
+          "type": "file",
+          "required": true,
+          "title": "検索対象ファイル",
+          "description": "JSON (.json) または 1行1項目のテキスト",
+          "placeholder": "items.json"
+        },
+        {
+          "name": "executable",
+          "type": "file",
+          "required": true,
+          "title": "実行ファイル",
+          "description": "選択項目を渡して実行するスクリプト/コマンド(macOS: 実行権限と shebang が必要 / Windows: .exe .ps1 .bat .cmd)",
+          "placeholder": "handler.sh"
+        },
+        {
+          "name": "dictFile",
+          "type": "file",
+          "required": true,
+          "title": "migemo辞書ファイル",
+          "description": "jsmigemo の migemo-compact-dict",
+          "placeholder": "migemo-compact-dict"
+        },
+        {
+          "name": "passMode",
+          "type": "dropdown",
+          "required": false,
+          "title": "値の渡し方",
+          "description": "選択した項目の value を実行ファイルにどう渡すか",
+          "default": "arg",
+          "data": [
+            { "title": "第1引数", "value": "arg" },
+            { "title": "標準入力", "value": "stdin" }
+          ]
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.93.0",
+    "jsmigemo": "^0.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "typescript": "^5.4.0"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop"
+  }
+}

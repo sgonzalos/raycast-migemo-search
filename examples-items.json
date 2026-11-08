@@ -1,0 +1,5 @@
+[
+  { "title": "検索エンジン", "subtitle": "メモ", "value": "https://example.com/search" },
+  { "title": "研削盤マニュアル", "value": "/Users/me/docs/grinder.pdf", "keywords": ["けんさく"] },
+  "文字列だけの項目もOK"
+]
